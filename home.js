@@ -1,21 +1,46 @@
-// console.log("home js file connected");
+
+
+
+
+const validPin = 1234;
+
+//Reusable function to get input values 
+
+function getInputValueNumber (id){
+    const inputField =  document.getElementById(id)
+    const inputFieldValue = inputField.value
+    const inputFieldValueNumber = parseInt(inputFieldValue)
+
+    return inputFieldValueNumber
+
+
+}
+
+
+function getInputValue (id){
+
+    const inputField =  document.getElementById(id)
+    const inputFieldValue = inputField.value
+
+    return inputFieldValue
+
+}
+
 
 //validate pin
 
 //Add money Feature
 
-const validPin = 1234;
-
 document.getElementById('add-money-btn').addEventListener('click',function(e){
 
     e.preventDefault();
     
-    const bank = document.getElementById('bank').value;
+    const bank = getInputValue("bank");
 
     const accountNumber = document.getElementById('account-number').value;
-    const amount = parseInt(document.getElementById('add-amount').value);
+    const amount = getInputValueNumber("add-amount")
 
-    const pin = parseInt(document.getElementById('add-pin').value);
+    const pin = getInputValueNumber("add-pin");
     
 
     const availableBalance = parseInt(document.getElementById('available-balance').innerText);
@@ -57,7 +82,7 @@ document.getElementById("withdraw-btn").addEventListener("click",function(e){
     e.preventDefault()
     // console.log("withdraw button clicked")
 
-    const amount = parseInt(document.getElementById("withdraw-amount").value);
+    const amount = getInputValueNumber("withdraw-amount");
 
     const availableBalance = parseInt(document.getElementById("available-balance").innerText);
 
